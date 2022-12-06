@@ -1,0 +1,38 @@
+select count (*)
+from Superstore .. [ GlobalSuperStoreOrders ]
+
+select *
+from Superstore .. [ GlobalSuperStoreOrders ]
+order by 1
+
+select [ OrderID ], count (*)
+from Superstore .. [ GlobalSuperStoreOrders ]
+group by [ OrderID ]
+having count (*)>1
+
+select * from
+where [ OrderID ]='AG-2013-8490'
+ 
+ select [Row ID], [ OrderID ], count(*)
+ from SuperStore..[ GlobalSuperStoreOrders ]
+ group by [ Row ID] ,[ Order ID] 
+ having count(*)>1
+ 
+ select * from SuperStore.. GlobalSuperStoreOrders
+ where [ Ship Date ]<[Order Date]
+ 
+ select distinct [Ship Mode] from SuperStore.. GlobalSuperStoreOrders
+ 
+ select min(a.NumOfDays), max(a.NumOfDays)
+ from(
+ select DATEDIFF(DAY, [Order Date], [Ship Date]) as NumOfDays, *
+ from SuperStore.. GlobalSuperStoreOrders
+ where [Ship Mode]='Second Class') a
+ 
+ select [Customer ID], [OrderID],count(*)
+ from SuperStore.. GlobalSuperStoreOrders
+ group by [Customer ID],[Order ID]
+ order by [Customer ID]
+ 
+ select  * from SuperStore.. GlobalSuperStoreOrders
+ where [Order ID]='CA-2011-183100'
